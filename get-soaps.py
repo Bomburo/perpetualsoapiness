@@ -31,8 +31,6 @@ browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), 
 #------------------------------------
 #------------------------------------
 
-
-
 browser.get(url)
 
 # wait for site to load
@@ -41,29 +39,3 @@ time.sleep(delay)
 # click download button
 python_button = browser.find_elements_by_xpath("//input[@id='screenshot']")[0]
 python_button.click()
-
-# locate all elements with image tag
-image_tags = soup.findAll('img')
-
-# create directory for soap images
-if not os.path.exists('soaps'):
-    os.makedirs('soaps')
-
-# move to new directory
-os.chdir('soaps')
-
-# image file name variable
-x = 0
-
-# writing images
-for image in image_tags:
-    try:
-        url = image['src']
-        response = requests.get(url)
-        if response.status_code == 200:
-            with open('soap-' + str(x) + '.jpg', 'wb') as f:
-                f.write(requests.get(url).content)
-                f.close()
-                x += 1
-    except:
-        pass
