@@ -2,9 +2,9 @@
 
 from selenium import webdriver
 import tweepy as tp
-import os
 import time
 import glob
+import os
 
 # Get twitter creds
 from os import environ
@@ -52,9 +52,10 @@ api = tp.API(auth)
 
 saved_images = glob.glob('*.png')
 
-api.update_status("soap test tweet")
-
 # iterates over pictures in soaps folder
 for soap_image in saved_images:
     api.update_with_media(soap_image)
     time.sleep(3)
+
+api.update_status("soap test tweet 2")
+
