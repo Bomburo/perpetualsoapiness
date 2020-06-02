@@ -21,7 +21,7 @@ api = tp.API(auth)
 # wait for site to load
 time.sleep(delay)
 
-saved_images = glob.glob('images/*.png')
+saved_images = glob.glob('*.png')
 
 # iterates over pictures in soaps folder
 for soap_image in saved_images:
