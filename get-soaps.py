@@ -23,4 +23,13 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 browser.get(url)
 
+browser.get(url)
+
+# wait for site to load
+time.sleep(delay)
+
+# click download button
+python_button = browser.find_elements_by_xpath("//input[@id='screenshot']")[0]
+python_button.click()
+
 print(browser.page_source)
