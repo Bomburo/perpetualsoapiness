@@ -23,6 +23,8 @@ time.sleep(delay)
 
 saved_images = glob.glob('*.png')
 
+api.update_status("soap test tweet")
+
 # iterates over pictures in soaps folder
 for soap_image in saved_images:
     api.update_with_media(soap_image)
