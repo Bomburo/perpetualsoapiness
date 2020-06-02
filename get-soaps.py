@@ -4,10 +4,6 @@ from selenium import webdriver
 import os
 import time
 
-from flask import Flask
-app = Flask(__name__)
-
-
 delay=5
 
 # website with soap images
@@ -38,7 +34,3 @@ python_button = driver.find_element_by_id('screenshot')
 python_button.click()
 
 print(driver.page_source)
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
