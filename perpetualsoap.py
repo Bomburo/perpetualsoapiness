@@ -5,16 +5,21 @@ import time
 import glob
 import os
 
-# credentials to login to twitter api
-consumer_key = 'TWITTER_CONSUMER_KEY'
-consumer_secret = 'TWITTER_CONSUMER_SECRET'
-access_token = 'TWITTER_ACCESS_TOKEN'
-access_secret = 'TWITTER_ACCESS_SECRET'
+from os import environ
+CONSUMER_KEY = environ['TWITTER_CONSUMER_KEY']
+CONSUMER_SECRET = environ['TWITTER_CONSUMER_SECRET']
+ACCESS_KEY = environ['TWITTER_ACCESS_TOKEN']
+ACCESS_SECRET = environ['TWITTER_ACCESS_SECRET']
+
+delay=5
 
 # login to twitter account api
-auth = tp.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_secret)
+auth = tp.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tp.API(auth)
+
+# wait for site to load
+time.sleep(delay)
 
 saved_images = glob.glob('images/*.png')
 
