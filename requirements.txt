@@ -1,2 +1,2 @@
-flask==0.12.2
+flask>=1.0.0
 selenium==3.11.0
