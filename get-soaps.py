@@ -1,8 +1,17 @@
 # soap scraping for perpetualsoap bot
 
 from selenium import webdriver
+import tweepy as tp
 import os
 import time
+import glob
+
+# Get twitter creds
+from os import environ
+CONSUMER_KEY = environ['TWITTER_CONSUMER_KEY']
+CONSUMER_SECRET = environ['TWITTER_CONSUMER_SECRET']
+ACCESS_KEY = environ['TWITTER_ACCESS_TOKEN']
+ACCESS_SECRET = environ['TWITTER_ACCESS_SECRET']
 
 delay=5
 
@@ -33,4 +42,19 @@ time.sleep(delay)
 python_button = driver.find_element_by_id('screenshot')
 python_button.click()
 
-print(driver.page_source)
+# wait for image to hopefully download
+time.sleep(delay)
+
+# login to twitter account api
+auth = tp.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+api = tp.API(auth)
+
+saved_images = glob.glob('*.png')
+
+api.update_status("soap test tweet")
+
+# iterates over pictures in soaps folder
+for soap_image in saved_images:
+    api.update_with_media(soap_image)
+    time.sleep(3)
