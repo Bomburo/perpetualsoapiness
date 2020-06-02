@@ -1,2 +1,2 @@
 web: python server.py
-web: python get-soaps.py
+worker: python get-soaps.py
