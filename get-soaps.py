@@ -23,8 +23,6 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 browser.get(url)
 
-browser.get(url)
-
 # wait for site to load
 time.sleep(delay)
 
