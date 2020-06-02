@@ -30,7 +30,7 @@ driver.get(url)
 time.sleep(delay)
 
 # click download button
-python_button = driver.find_elements_by_xpath("//input[@id='screenshot']")[0]
+python_button = driver.find_element_by_id('screenshot')
 python_button.click()
 
 print(driver.page_source)
