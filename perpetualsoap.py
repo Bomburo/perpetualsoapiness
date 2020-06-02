@@ -6,10 +6,10 @@ import glob
 import os
 
 # credentials to login to twitter api
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_secret = ''
+consumer_key = 'TWITTER_CONSUMER_KEY'
+consumer_secret = 'TWITTER_CONSUMER_SECRET'
+access_token = 'TWITTER_ACCESS_TOKEN'
+access_secret = 'TWITTER_ACCESS_SECRET'
 
 # login to twitter account api
 auth = tp.OAuthHandler(consumer_key, consumer_secret)
